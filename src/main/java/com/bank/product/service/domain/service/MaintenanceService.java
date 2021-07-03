@@ -1,13 +1,9 @@
 package com.bank.product.service.domain.service;
 
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
+import java.util.UUID;
 
-public interface MaintenanceService<T> {
+import com.bank.product.service.domain.dto.ProductDTO;
+
+public interface MaintenanceService<T> extends CRUDService<ProductDTO, String> {
 	
-	public Flux<T> findAll();
-	public Mono<T> findEntityById(String id);
-	public Mono<T> createEntity(T entity) throws Exception;
-	public Mono<T> updateEntity(T entity);
-	public Mono<Void> deleteEntity(String id);
 }

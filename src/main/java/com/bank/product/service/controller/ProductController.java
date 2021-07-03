@@ -16,11 +16,11 @@ import com.bank.product.service.persistence.entity.Product;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@RestController
-@RequestMapping("/product")
+//@RestController
+//@RequestMapping("/product")
 public class ProductController {
 
-
+/*
 	@Autowired
 	private ProductService<Product> productService;
 
@@ -48,7 +48,7 @@ public class ProductController {
 	public Mono<Void> deleteProduct(@PathVariable String id){
 		return productService.deleteEntity(id);
 	}
-	
+	*/
 	/*@GetMapping("/find-by-product/{idProduct}")
 	public Mono<Product> getTransacionByIdProduct(@PathVariable String idProduct){
 		return productService.getProductByIdProduct(idProduct);
