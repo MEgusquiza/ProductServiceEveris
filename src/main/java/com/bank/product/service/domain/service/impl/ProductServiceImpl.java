@@ -23,40 +23,6 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 		
-/*	@Override
-	public Flux<Product> findAll() {
-		return productRepository.findAll();
-	
-	}
-
-	@Override
-	public Mono<Product> findEntityById(String id) {
-		return productRepository.findById(id);
-	
-	}
-
-	@Override
-	public Mono<Product> createEntity(Product entity) throws Exception {
-		return productRepository.insert(entity);
-	}
-
-	@Override
-	public Mono<Product> updateEntity(Product entity) {
-		return productRepository.findById(entity.getId())
-				 .switchIfEmpty(Mono.error(new Exception("No product found with Id: " )))
-				 .flatMap(item-> productRepository.save(entity));
-	}
-
-	@Override
-	public Mono<Void> deleteEntity(String id) {
-		return productRepository.findById(id)
-				 .switchIfEmpty(Mono.error( new Exception("No Product found with Id: ") ))
-				 .flatMap(item-> productRepository.deleteById(id));
-	}
-	
-	
-*/
-	
   @Override
   public Flux<ProductDTO> findAll() {
 	        log.debug("getAll products");
@@ -92,8 +58,6 @@ public class ProductServiceImpl implements ProductService {
     return productRepository.findById(id)
         .flatMap(p -> productRepository.deleteById(p.getId()).thenReturn(p))
         .map(AppUtils::entityToDTO);
-      //  .switchIfEmpty(Mono.error( new Exception("No Product found with Id: ") ))
-       // .flatMap(item-> productRepository.deleteById(id));
   
   }
 
